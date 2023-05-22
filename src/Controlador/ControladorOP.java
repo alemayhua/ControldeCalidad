@@ -69,7 +69,8 @@ public class ControladorOP {
         op = null;
         for (OP buscarOP : listaOP) {
             if (buscarOP.getEmpleado() == empleado && buscarOP.getEstado().equals("Iniciado")
-                    || buscarOP.getEmpleado() == empleado && buscarOP.getEstado().equals("Pausado")) {
+                    || buscarOP.getEmpleado() == empleado && buscarOP.getEstado().equals("Pausado")
+                    || buscarOP.getEmpleado() == empleado && buscarOP.getEstado().equals("Reanudado")) {
                 op = buscarOP;
                 vsl.getLblEstadoOP().setText("Estado OP: " + op.getEstado());
                 vsl.getBtnIniciar().setEnabled(false);
@@ -91,7 +92,9 @@ public class ControladorOP {
         vsl.getBtnIniciar().setEnabled(false);
         vsl.getBtnPausar().setEnabled(true);
         vsl.getBtnFinalizar().setEnabled(true);
-        if(vsl.getCbNumeroLinea().getSelectedItem() == null) vsl.getLblDescripcionLinea().setText("");
+        if (vsl.getCbNumeroLinea().getSelectedItem() == null) {
+            vsl.getLblDescripcionLinea().setText("");
+        }
         cargarTablaOP();
     }
 
@@ -110,7 +113,7 @@ public class ControladorOP {
             vsl.getLblEstadoOP().setText("Estado OP: " + op.getEstado());
             vsl.getBtnPausar().setText("▸ ︎Reanudar");
         } else {
-            op.setEstado("Iniciado");
+            op.setEstado("Reanudado");
             vsl.getLblEstadoOP().setText("Estado OP: " + op.getEstado());
             vsl.getBtnPausar().setText("⏸️ ︎Pausar");
         }

@@ -18,15 +18,15 @@ public class ControladorInicio {
         vi.getTxtUsuario().setText("");
         vi.getTxtContrasenia().setText("");
     }
-    
+
     public static void botonIniciar() {
         String usuario = vi.getTxtUsuario().getText();
         String contrasenia = vi.getTxtContrasenia().getText();
         empleado = null;
         for (Empleado buscarEmpleado : listaEmpleados) {
             if (usuario.equals(buscarEmpleado.getUsuario()) && contrasenia.equals(buscarEmpleado.getContrasenia())) {
+                empleado = buscarEmpleado;
                 if (buscarEmpleado instanceof SupervisorLinea) {
-                    empleado = buscarEmpleado;
                     vi.dispose();
                     ControladorSupervisorLinea.mostrarVistaSupervisorLinea();
                     break;
@@ -37,13 +37,12 @@ public class ControladorInicio {
             }
         }
         if (empleado == null) {
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+            JOptionPane.showMessageDialog(null, "Los datos ingresados no son válidos. Intente nuevamente.");
         }
     }
-    
-    public static void botonCerrarSesion(){
+
+    public static void botonCerrarSesion() {
         vsl.setVisible(false);
         mostrarInicio();
     }
 }
-
