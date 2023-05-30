@@ -57,6 +57,7 @@ public class Empleado {
         this.correo = correo;
         this.Usuario = Usuario;
         this.contrasenia = contrasenia;
+        
     }
 
     public Empleado(int dni, String nombreYApellido, String correo) {

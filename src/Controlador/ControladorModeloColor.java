@@ -9,7 +9,6 @@ import javax.swing.table.DefaultTableModel;
 
 import static Controlador.ObjetosIniciales.*;
 
-
 /**
  *
  * @author alemayhua
@@ -60,6 +59,7 @@ public class ControladorModeloColor {
             }
         }
         ControladorSupervisorLinea.limpiarCampos();
+        ControladorOP.llenarCombobox();
     }
 
     public static void cargarTabla(ArrayList lista, JTable tablaVista) {
